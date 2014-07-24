@@ -8,17 +8,17 @@ permalink:        pretty
 # Setup
 title:            R tips and tricks
 tagline:          'An R blog'
-description:      'Created by <a href="mailto:afragos1@itam.mx">Antonio Fragoso</a> a Data Scientist student at <a href="http:www.itam.mx">ITAM</a>'
-url:              http://lanyon.getpoole.com
+description:      'Created by <a href="mailto:afragos1@itam.mx">Antonio Fragoso</a> a Data Scientist student at <a href="http:www.itam.mx" target="_blank">ITAM</a>'
+url:               http://afrdiaz.github.io
 baseurl:          '/'
 paginate:         5
 
 author:
-  name:           'Mark Otto'
-  url:            https://twitter.com/mdo
+  name:           'Antonio Fragoso'
+  url:            http://afrdiaz.github.io
 
 # Custom vars
 version:          1.0.0
 
 github:
-  repo:           https://github.com/poole/lanyon
+  repo:           https://github.com/afrdiaz
