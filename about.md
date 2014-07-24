@@ -8,4 +8,4 @@ title: About
 </p>
 
 Thanks for reading and enjoy it!
-Antonio Fragoso (mailto:afragos1@itam.mx)
+[Antonio Fragoso](mailto:afragos1@itam.mx)
