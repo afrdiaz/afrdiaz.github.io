@@ -8,7 +8,7 @@ permalink:        pretty
 # Setup
 title:            R tips and tricks
 tagline:          'An R blog'
-description:      'Created by <a href="mailto:afragos1@itam.mx">Antonio Fragoso</a> a Data Scientist student at <a href="http:www.itam.mx" target="_blank">ITAM</a>'
+description:      'Created by <a href="mailto:afragos1@itam.mx">Antonio Fragoso</a> a Data Scientist student at <a href="http://www.itam.mx" target="_blank">ITAM</a>'
 url:               http://afrdiaz.github.io
 baseurl:          '/'
 paginate:         5
