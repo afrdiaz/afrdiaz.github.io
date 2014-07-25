@@ -11,7 +11,7 @@
 
   <title>
     
-      What's Jekyll? &middot; Lanyon
+      R and mongoDB &middot; R tips and tricks
     
   </title>
 
@@ -39,7 +39,7 @@
 <!-- Toggleable sidebar -->
 <div class="sidebar" id="sidebar">
   <div class="sidebar-item">
-    <p>A reserved <a href="http://jekyllrb.com" target="_blank">Jekyll</a> theme that places the utmost gravity on content with a hidden drawer. Made by <a href="https://twitter.com/mdo" target="_blank">@mdo</a>.</p>
+    <p>Created by <a href="mailto:afragos1@itam.mx">Antonio Fragoso</a> a Data Scientist student at <a href="http://www.itam.mx/es/index.php" target="_blank">ITAM</a></p>
   </div>
 
   <nav class="sidebar-nav">
@@ -60,14 +60,20 @@
       
     
       
+        
+          <a class="sidebar-nav-item" href="/archive/">Archive</a>
+        
+      
+    
+      
     
       
         
       
     
 
-    <a class="sidebar-nav-item" href="https://github.com/poole/lanyon/archive/v1.0.0.zip">Download</a>
-    <a class="sidebar-nav-item" href="https://github.com/poole/lanyon">GitHub project</a>
+    <a class="sidebar-nav-item" href="https://github.com/afrdiaz/archive/v1.0.0.zip">Download</a>
+    <a class="sidebar-nav-item" href="https://github.com/afrdiaz">GitHub project</a>
     <span class="sidebar-nav-item">Currently v1.0.0</span>
   </nav>
 
@@ -85,25 +91,46 @@
       <div class="masthead">
         <div class="container">
           <h3 class="masthead-title">
-            <a href="/" title="Home">Lanyon</a>
-            <small>A Jekyll theme</small>
+            <a href="/" title="Home">R tips and tricks</a>
+            <small>An R blog</small>
           </h3>
         </div>
       </div>
 
       <div class="container content">
         <div class="post">
-  <h1 class="post-title">What's Jekyll?</h1>
-  <span class="post-date">31 Dec 2013</span>
-  <p><a href="http://jekyllrb.com">Jekyll</a> is a static site generator, an open-source tool for creating simple yet powerful websites of all shapes and sizes. From <a href="https://github.com/mojombo/jekyll/blob/master/README.markdown">the project&#39;s readme</a>:</p>
+  <h1 class="post-title">R and mongoDB</h1>
+  <span class="post-date">24 Jul 2014</span>
+  <div class="message">
+  This is a simple example on how to query mongoDB with R using rmongodb package.
+</div>
 
-<blockquote>
-<p>Jekyll is a simple, blog aware, static site generator. It takes a template directory [...] and spits out a complete, static website suitable for serving with Apache or your favorite web server. This is also the engine behind GitHub Pages, which you can use to host your project’s page or blog right here from GitHub.</p>
-</blockquote>
+<h3>Code</h3>
+<div class="highlight"><pre><code class="r language-r" data-lang="r"><span class="c1"># CREATE CONNECTION WITH mongoDB</span>
+mongo <span class="o">&lt;-</span> mongo.create<span class="p">(</span>db<span class="o">=</span><span class="s">&quot;db_trends&quot;</span><span class="p">)</span>
+<span class="c1"># SHOW DBs</span>
+mongo.get.databases<span class="p">(</span>mongo<span class="p">)</span>
+<span class="c1"># CHOOSE THE COLLECTION</span>
+colle <span class="o">&lt;-</span> <span class="s">&quot;db_trends.trends_twitter&quot;</span>
+<span class="c1"># COUNT DOCUMENTS OF THE COLLECTION</span>
+mongo.count<span class="p">(</span>mongo<span class="p">,</span>colle<span class="p">)</span>
 
-<p>It&#39;s an immensely useful tool and one we encourage you to use here with Hyde.</p>
+<span class="c1"># A. SELECT ALL THE DOCUMENTS ON THE COLLECTION</span>
+todo <span class="o">&lt;-</span> mongo.find.all<span class="p">(</span>mongo<span class="p">,</span>colle<span class="p">)</span>
 
-<p>Find out more by <a href="https://github.com/mojombo/jekyll">visiting the project on GitHub</a>.</p>
+<span class="c1"># B. CREATE A BUFFER TO FILTER THE QUERY</span>
+buf <span class="o">&lt;-</span> mongo.bson.buffer.create<span class="p">()</span>
+mongo.bson.buffer.append<span class="p">(</span>buf<span class="p">,</span> <span class="s">&quot;COLUMN_NAME&quot;</span><span class="p">,</span><span class="s">&quot;FILTER&quot;</span><span class="p">)</span>
+<span class="c1"># CREATE THE QUERY</span>
+query <span class="o">&lt;-</span> mongo.bson.from.buffer<span class="p">(</span>buf<span class="p">)</span>
+<span class="c1"># QUERY</span>
+cursor <span class="o">&lt;-</span> mongo.find<span class="p">(</span>mongo<span class="p">,</span> colle<span class="p">)</span>
+<span class="c1"># STORE THE RESPONSE INTO A DATA FRAME</span>
+all <span class="o">&lt;-</span> mongo.cursor.to.data.frame<span class="p">(</span>cursor<span class="p">)</span> 
+</code></pre></div>
+<hr>
+
+<p>Want to see something else added? <a href="https://github.com/afrdiaz/afrdiaz.github.io/issues/new">Open an issue.</a></p>
 
 </div>
 
@@ -113,18 +140,9 @@
     
       <li>
         <h3>
-          <a href="/2014/01/02/introducing-lanyon/">
-            Introducing Lanyon
-            <small>02 Jan 2014</small>
-          </a>
-        </h3>
-      </li>
-    
-      <li>
-        <h3>
-          <a href="/2014/01/01/example-content/">
-            Example content
-            <small>01 Jan 2014</small>
+          <a href="/2014/07/24/example-content/">
+            Example Content
+            <small>24 Jul 2014</small>
           </a>
         </h3>
       </li>
