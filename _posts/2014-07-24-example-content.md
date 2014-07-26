@@ -11,7 +11,7 @@ title: R and mongoDB
 
 ### Code
 
-```{r}
+```R
 # CREATE CONNECTION WITH mongoDB
 mongo <- mongo.create(db="db_trends")
 # SHOW DBs
