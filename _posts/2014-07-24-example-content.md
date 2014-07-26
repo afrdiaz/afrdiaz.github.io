@@ -5,7 +5,7 @@ title: R and mongoDB
 
 
 <div class="message">
-  This is a simple example on how to query mongoDB with R using rmongodb package.
+  This is a simple example on how to query mongoDB on R using rmongodb package.
 </div>
 
 
@@ -18,10 +18,10 @@ mongo <- mongo.create(db="db_trends")
 mongo.get.databases(mongo)
 # CHOOSE THE COLLECTION
 colle <- "db_trends.trends_twitter"
-# COUNT DOCUMENTS OF THE COLLECTION
+# COUNT DOCUMENTS IN THE COLLECTION
 mongo.count(mongo,colle)
 
-# A. SELECT ALL THE DOCUMENTS ON THE COLLECTION
+# A. SELECT ALL THE DOCUMENTS IN THE COLLECTION
 todo <- mongo.find.all(mongo,colle)
 
 # B. CREATE A BUFFER TO FILTER THE QUERY
